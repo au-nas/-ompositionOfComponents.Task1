@@ -20,12 +20,13 @@ const checkWin = (field, currentPlayer) => {
 
 export const Game = () => {
 	const [currentPlayer, setCurrentPlayer] = useState('X');
-	const [isGameEnded, setIsGameEnded] = useState(false);
-	const [isDraw, setIsDraw] = useState(false);
+	const [isGameEnded, setIsGameEnded] = useState(false); // была ли завершена игра
+	const [isDraw, setIsDraw] = useState(false); // была ли ничья
 	const [field, setField] = useState(['', '', '', '', '', '', '', '', '']);
 
 	const handleClickField = (index) => {
 		// console.log('click', index);
+        if (field[index] !== '' || isGameEnded || isDraw) return;
 
 
 		const copyField = [...field]; // копия, посмотрела в созовне
@@ -38,7 +39,15 @@ setField(copyField);
 			return setIsDraw(true);
 		}
 
-		setCurrentPlayer((prevState) => prevState === 'X' ? '0' : 'X')
+		setCurrentPlayer((prevState) => prevState === 'X' ? '0' : 'X');
+	};
+
+	
+	const handleRestart = () => {
+		setField(['', '', '', '', '', '', '', '', '']);
+		setCurrentPlayer('X');
+		setIsGameEnded(false);
+		setIsDraw(false);
 	};
 
 	return (
@@ -49,7 +58,7 @@ setField(copyField);
 				isDraw={isDraw}
 			/>
 			<Field field={field} handleClickField={handleClickField} />
-			<button className={styles.restartButton}>Начать заново</button>
+			<button className={styles.restartButton} onClick={handleRestart}>Начать заново</button>
 		</GameLayout>
 	);
 };
