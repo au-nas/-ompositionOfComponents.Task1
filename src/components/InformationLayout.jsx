@@ -1,4 +1,5 @@
 import { Information } from './Information';
+import styles from '../styles/InformationLayout.module.css';
 
 export const InformationLayout = ({ currentPlayer, isGameEnded, isDraw }) => {
 	let infoMessage = '';
@@ -11,5 +12,5 @@ export const InformationLayout = ({ currentPlayer, isGameEnded, isDraw }) => {
 		infoMessage = `Ходит: ${currentPlayer}`;
 	}
 
-	return <div>{infoMessage}</div>
+	return <div className={styles.info}>{infoMessage}</div>
 };
