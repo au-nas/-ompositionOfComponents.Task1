@@ -10,6 +10,6 @@ export const GameLayout = ({children}) => {
 	);
 };
 
-GameLayout.PropTypes = {
+GameLayout.propTypes = {
 	children: PropTypes.node
 };

@@ -16,7 +16,7 @@ export const InformationLayout = ({ currentPlayer, isGameEnded, isDraw }) => {
 	return <div className={styles.info}>{infoMessage}</div>
 };
 
-Information.PropTypes = {
+InformationLayout.propTypes = {
 	currentPlayer: PropTypes.oneOf(['X', '0']),
 	isGameEnded: PropTypes.bool,
 	isDraw: PropTypes.bool

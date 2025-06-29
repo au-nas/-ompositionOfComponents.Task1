@@ -16,7 +16,7 @@ export const FieldLayout = ({ field, handleClickField }) => {
 	return <div className={styles.fieldGrid}>{renderedCells}</div>;
 };
 
-Field.PropTypes = {
+FieldLayout.propTypes = {
 	field: PropTypes.arrayOf(PropTypes.string),
 	handleClickField: PropTypes.func
 };
